@@ -68,10 +68,8 @@ def cadastrar_ideia(request):
 
     return render(request, 'ideias.html', {}) 
 
-def remover_ideia(request, id):
-    ideia = Ideia.objects.filter(id=id)
-    print('essa é a ideia')
-    print(ideia)
+def remover_ideias(request, id):
+    ideia = Ideia.objects.filter(id=id).first()
     if ideia is not None:
         ideia.ativo = False
         ideia.save()
